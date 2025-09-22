@@ -13,39 +13,40 @@ Room* createRoom(const char* name, const char* clue) {
     return newRoom;
 }
 
-ClueNode* inserirPista(ClueNode* root, const char* clue) {
+ClueNode* createClue(ClueNode* root, const char* clue) {
     if (root == NULL) {
         ClueNode* node = (ClueNode*) malloc(sizeof(ClueNode));
         strcpy(node->clue, clue);
         node->left = node->right = NULL;
         return node;
     }
-    if (strcmp(clue, root->clue) < 0) root->left = inserirPista(root->left, clue);
-    else if (strcmp(clue, root->clue) > 0) root->right = inserirPista(root->right, clue);
+    if (strcmp(clue, root->clue) < 0) root->left = createClue(root->left, clue);
+    else if (strcmp(clue, root->clue) > 0) root->right = createClue(root->right, clue);
     return root;
 }
 
-void explorarSalasComPistas(Room* current, ClueNode** collectedClues) {
+void exploreMansion(Room* current, ClueNode** collectedClues) {
     if (current == NULL) return;
 
     printf("\nVocê está em: %s\n", current->name);
     if (strlen(current->clue) > 0) {
         printf("💡 Pista encontrada: %s\n", current->clue);
-        *collectedClues = inserirPista(*collectedClues, current->clue);
+        *collectedClues = createClue(*collectedClues, current->clue);
     }
 
     char choice;
     printf("Escolha o próximo caminho: esquerda (e), direita (d) ou sair (s): ");
     scanf(" %c", &choice);
+    system("clear");
 
-    if (choice == 'e') explorarSalasComPistas(current->left, collectedClues);
-    else if (choice == 'd') explorarSalasComPistas(current->right, collectedClues);
+    if (choice == 'e') exploreMansion(current->left, collectedClues);
+    else if (choice == 'd') exploreMansion(current->right, collectedClues);
     else printf("Você decidiu sair da exploração.\n");
 }
 
-void exibirPistas(ClueNode* root) {
+void printClues(ClueNode* root) {
     if (root == NULL) return;
-    exibirPistas(root->left);
+    printClues(root->left);
     printf("- %s\n", root->clue);
-    exibirPistas(root->right);
+    printClues(root->right);
 }

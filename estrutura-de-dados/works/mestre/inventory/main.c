@@ -22,7 +22,7 @@ int main() {
 
         printf("Prioridade (1-10): ");
         scanf("%d", &components[size].priority);
-        getchar(); // limpar buffer
+        getchar();
 
         size++;
     }

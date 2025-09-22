@@ -1,7 +1,7 @@
-all: detective_quest
+all: detective-quest-app
 
-detective_quest: main.o mansion.o
-	gcc main.o mansion.o -o detective_quest
+detective-quest-app: main.o mansion.o
+	gcc main.o mansion.o -o detective-quest-app
 
 main.o: main.c mansion.h
 	gcc -c main.c
@@ -10,4 +10,4 @@ mansion.o: mansion.c mansion.h
 	gcc -c mansion.c
 
 clean:
-	rm -f *.o detective_quest
+	rm -f *.o detective-quest-app

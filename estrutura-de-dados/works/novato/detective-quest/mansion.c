@@ -19,6 +19,7 @@ void exploreMansion(Room *room) {
     char choice;
 
     while (room != NULL) {
+        system("clear");
         printf("\n📍 Você está na sala: %s\n", room->name);
 
         if (room->left == NULL && room->right == NULL) {

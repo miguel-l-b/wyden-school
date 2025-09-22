@@ -3,6 +3,7 @@
 #include "mansion.h"
 
 int main() {
+    system("clear");
     Room* hall = createRoom("Hall de Entrada", "Chave encontrada");
     Room* kitchen = createRoom("Cozinha", "Pegada suspeita");
     Room* library = createRoom("Biblioteca", "Livro aberto em código");
@@ -18,10 +19,10 @@ int main() {
 
     printf("🔍 Bem-vindo ao Detective Quest - Coleta de Pistas\n");
 
-    explorarSalasComPistas(hall, &collectedClues);
+    exploreMansion(hall, &collectedClues);
 
     printf("\n🏆 Todas as pistas coletadas (em ordem alfabética):\n");
-    exibirPistas(collectedClues);
+    printClues(collectedClues);
 
     return 0;
 }

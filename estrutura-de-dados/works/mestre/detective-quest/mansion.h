@@ -16,22 +16,18 @@ typedef struct ClueNode {
     struct ClueNode *right;
 } ClueNode;
 
-// Hash para associar pistas a suspeitos
 typedef struct HashNode {
     char clue[100];
     char suspect[50];
     struct HashNode* next;
 } HashNode;
 
-// Funções de salas
 Room* createRoom(const char* name, const char* clue);
 void explorarSalas(Room* current, ClueNode** collectedClues);
 
-// Funções de BST
 ClueNode* inserirPista(ClueNode* root, const char* clue);
 void exibirPistas(ClueNode* root);
 
-// Funções de hash
 int hashFunction(const char* clue);
 void inserirNaHash(HashNode* hashTable[], const char* clue, const char* suspect);
 char* encontrarSuspeito(HashNode* hashTable[], const char* clue);

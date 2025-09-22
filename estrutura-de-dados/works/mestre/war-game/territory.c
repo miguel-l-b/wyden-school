@@ -4,7 +4,6 @@
 #include <time.h>
 #include "territory.h"
 
-// Cria dinamicamente o vetor de territórios
 Territory* createMap(int n) {
     Territory *map = (Territory*) calloc(n, sizeof(Territory));
     if (!map) {
@@ -14,7 +13,6 @@ Territory* createMap(int n) {
     return map;
 }
 
-// Cadastro de territórios
 void registerTerritories(Territory *map, int n) {
     for (int i = 0; i < n; i++) {
         printf("\n=== Cadastro do território %d ===\n", i + 1);
@@ -27,7 +25,6 @@ void registerTerritories(Territory *map, int n) {
     }
 }
 
-// Exibição dos territórios
 void showMap(Territory *map, int n) {
     printf("\n🌍 Estado atual do mapa:\n");
     for (int i = 0; i < n; i++) {
@@ -36,7 +33,6 @@ void showMap(Territory *map, int n) {
     }
 }
 
-// Função de ataque
 void attack(Territory *attacker, Territory *defender) {
     if (strcmp(attacker->color, defender->color) == 0) {
         printf("\n⚠️ Não é possível atacar um território da mesma cor!\n");
@@ -65,7 +61,6 @@ void attack(Territory *attacker, Territory *defender) {
     }
 }
 
-// Libera memória
 void freeMap(Territory *map) {
     free(map);
 }

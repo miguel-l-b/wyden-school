@@ -1,7 +1,7 @@
-all: territory
+all: war-game-app
 
-territory: main.o territory.o
-	gcc main.o territory.o -o territory
+war-game-app: main.o territory.o
+	gcc main.o territory.o -o war-game-app
 
 main.o: main.c territory.h
 	gcc -c main.c
@@ -10,4 +10,4 @@ territory.o: territory.c territory.h
 	gcc -c territory.c
 
 clean:
-	rm -f *.o territory
+	rm -f *.o war-game-app

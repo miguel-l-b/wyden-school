@@ -7,6 +7,7 @@ typedef struct {
     int troops;
 } Territory;
 
-void inputTerritory(struct Territory *territory, int indice);
+void inputTerritory(Territory *territory, int index);
+void printTerritory(Territory territory, int index);
 
 #endif

@@ -15,9 +15,9 @@ typedef struct PistaNode {
 } ClueNode;
 
 Room* createRoom(const char* name, const char* clue);
-void explorarSalasComPistas(Room* current, ClueNode** collectedClues);
+void exploreMansion(Room* current, ClueNode** collectedClues);
 
-ClueNode* inserirPista(ClueNode* root, const char* clue);
-void exibirPistas(ClueNode* root);
+ClueNode* createClue(ClueNode* root, const char* clue);
+void printClues(ClueNode* root);
 
 #endif

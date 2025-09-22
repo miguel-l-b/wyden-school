@@ -9,6 +9,9 @@ void insertItem(Item backpack[], int *numItems) {
         return;
     }
 
+    system("clear");
+    printf("\n====== SISTEMA DE INVENTÁRIO ======\n");
+
     Item newItem;
     printf("\nDigite o nome do item: ");
     scanf(" %[^\n]", newItem.name);
@@ -31,6 +34,9 @@ void removeItem(Item backpack[], int *numItems) {
         printf("\n⚠️ A mochila está vazia!\n");
         return;
     }
+
+    system("clear");
+    printf("\n====== SISTEMA DE INVENTÁRIO ======\n");
 
     char name[30];
     printf("\nDigite o nome do item a ser removido: ");
@@ -58,6 +64,9 @@ void removeItem(Item backpack[], int *numItems) {
 }
 
 void listItems(Item backpack[], int numItems) {
+    system("clear");
+    printf("\n====== SISTEMA DE INVENTÁRIO ======\n");
+
     printf("\n📦 Itens na mochila (%d/%d):\n", numItems, MAX_ITEMS);
     if (numItems == 0) {
         printf("A mochila está vazia.\n");
@@ -75,6 +84,9 @@ void searchItem(Item backpack[], int numItems) {
         printf("\n⚠️ A mochila está vazia!\n");
         return;
     }
+
+    system("clear");
+    printf("\n====== SISTEMA DE INVENTÁRIO ======\n");
 
     char name[30];
     printf("\nDigite o nome do item que deseja buscar: ");

@@ -1,18 +1,13 @@
 #ifndef LIST_H
 #define LIST_H
 
-typedef struct {
-    char name[30];
-    char type[20];
-    int quantity;
-} Item;
+#include "vector.h"
 
 typedef struct Node {
-    Item data;
-    struct Node* next;
+	Item data;
+	struct Node* next;
 } Node;
 
-// Funções da lista encadeada
 Node* insertItemList(Node *head);
 Node* removeItemList(Node *head, const char *name);
 void listItemsList(Node *head);

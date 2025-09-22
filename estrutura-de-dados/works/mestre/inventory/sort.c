@@ -2,7 +2,6 @@
 #include <string.h>
 #include "sort.h"
 
-// Bubble Sort por nome
 void bubbleSortName(Component components[], int size, int *comparisons) {
     *comparisons = 0;
     for (int i = 0; i < size - 1; i++) {
@@ -18,7 +17,6 @@ void bubbleSortName(Component components[], int size, int *comparisons) {
     printf("\n✅ Componentes ordenados por nome (Bubble Sort)\n");
 }
 
-// Insertion Sort por tipo
 void insertionSortType(Component components[], int size, int *comparisons) {
     *comparisons = 0;
     for (int i = 1; i < size; i++) {
@@ -36,7 +34,6 @@ void insertionSortType(Component components[], int size, int *comparisons) {
     printf("\n✅ Componentes ordenados por tipo (Insertion Sort)\n");
 }
 
-// Selection Sort por prioridade
 void selectionSortPriority(Component components[], int size, int *comparisons) {
     *comparisons = 0;
     for (int i = 0; i < size - 1; i++) {
@@ -56,7 +53,6 @@ void selectionSortPriority(Component components[], int size, int *comparisons) {
     printf("\n✅ Componentes ordenados por prioridade (Selection Sort)\n");
 }
 
-// Busca binária por nome
 int binarySearchByName(Component components[], int size, char target[], int *comparisons) {
     int left = 0, right = size - 1;
     *comparisons = 0;
@@ -71,7 +67,6 @@ int binarySearchByName(Component components[], int size, char target[], int *com
     return -1;
 }
 
-// Mostrar componentes
 void showComponents(Component components[], int size) {
     printf("\n📦 Componentes:\n");
     for (int i = 0; i < size; i++) {

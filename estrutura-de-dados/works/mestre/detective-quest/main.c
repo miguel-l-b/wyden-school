@@ -4,7 +4,6 @@
 #include "mansion.h"
 
 int main() {
-    // Montar mansão
     Room* hall = createRoom("Hall de Entrada", "Pegada suja");
     Room* kitchen = createRoom("Cozinha", "Garrafa quebrada");
     Room* library = createRoom("Biblioteca", "Livro rasgado");
@@ -16,16 +15,14 @@ int main() {
     kitchen->left = garden;
     kitchen->right = cellar;
 
-    // BST de pistas
     ClueNode* collectedClues = NULL;
 
-    // Hash de pistas -> suspeitos
     HashNode* hashTable[HASH_SIZE] = {NULL};
-    inserirNaHash(hashTable, "Pegada suja", "Suspeito A");
-    inserirNaHash(hashTable, "Garrafa quebrada", "Suspeito B");
-    inserirNaHash(hashTable, "Livro rasgado", "Suspeito A");
-    inserirNaHash(hashTable, "Flor murcha", "Suspeito C");
-    inserirNaHash(hashTable, "Chave perdida", "Suspeito B");
+    inserirNaHash(hashTable, "Pegada suja", "Lara");
+    inserirNaHash(hashTable, "Garrafa quebrada", "João");
+    inserirNaHash(hashTable, "Livro rasgado", "Lara");
+    inserirNaHash(hashTable, "Flor murcha", "Pedro");
+    inserirNaHash(hashTable, "Chave perdida", "João");
 
     printf("🔎 Detective Quest - Capítulo Mestre\n");
 

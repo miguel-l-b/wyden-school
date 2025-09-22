@@ -3,7 +3,6 @@
 #include <string.h>
 #include "mansion.h"
 
-// ---------------- Sala ----------------
 Room* createRoom(const char* name, const char* clue) {
     Room* room = (Room*) malloc(sizeof(Room));
     strcpy(room->name, name);
@@ -13,7 +12,6 @@ Room* createRoom(const char* name, const char* clue) {
     return room;
 }
 
-// ---------------- BST Pistas ----------------
 ClueNode* inserirPista(ClueNode* root, const char* clue) {
     if (root == NULL) {
         ClueNode* node = (ClueNode*) malloc(sizeof(ClueNode));
@@ -33,7 +31,6 @@ void exibirPistas(ClueNode* root) {
     exibirPistas(root->right);
 }
 
-// ---------------- Hash ----------------
 int hashFunction(const char* clue) {
     int sum = 0;
     for (int i=0; clue[i]; i++) sum += clue[i];
@@ -59,7 +56,6 @@ char* encontrarSuspeito(HashNode* hashTable[], const char* clue) {
     return NULL;
 }
 
-// ---------------- Exploração ----------------
 void explorarSalas(Room* current, ClueNode** collectedClues) {
     if (current == NULL) return;
 
@@ -78,19 +74,20 @@ void explorarSalas(Room* current, ClueNode** collectedClues) {
     else printf("Você decidiu encerrar a exploração.\n");
 }
 
-// ---------------- Verificação de Suspeito ----------------
+void countCluesRec(ClueNode* node, HashNode* hashTable[], const char* suspect, int* count) {
+    if (!node) return;
+
+    countCluesRec(node->left, hashTable, suspect, count);
+
+    char* s = encontrarSuspeito(hashTable, node->clue);
+    if (s && strcmp(s, suspect) == 0) (*count)++;
+
+    countCluesRec(node->right, hashTable, suspect, count);
+}
+
 int verificarSuspeitoFinal(HashNode* hashTable[], ClueNode* collectedClues, const char* suspect) {
     int count = 0;
 
-    // Função auxiliar para percorrer BST
-    void countClues(ClueNode* node) {
-        if (!node) return;
-        countClues(node->left);
-        char* s = encontrarSuspeito(hashTable, node->clue);
-        if (s && strcmp(s, suspect) == 0) count++;
-        countClues(node->right);
-    }
-
-    countClues(collectedClues);
-    return count >= 2; // Pelo menos 2 pistas
+    countCluesRec(collectedClues, hashTable, suspect, &count);
+    return count >= 2;
 }

@@ -3,7 +3,7 @@
 #include "mansion.h"
 
 int main() {
-    // Montagem manual da árvore (mapa da mansão)
+    system("clear");
     Room *hall = createRoom("Hall de entrada");
     Room *living = createRoom("Sala de estar");
     Room *kitchen = createRoom("Cozinha");
@@ -11,7 +11,6 @@ int main() {
     Room *garden = createRoom("Jardim");
     Room *dining = createRoom("Sala de jantar");
 
-    // Conexões da árvore
     hall->left = living;
     hall->right = kitchen;
 
@@ -20,7 +19,6 @@ int main() {
 
     kitchen->right = dining;
 
-    // Início da exploração
     printf("🔎 Bem-vindo(a) ao Detective Quest!\n");
     printf("Explore a mansão e descubra os segredos escondidos...\n");
 

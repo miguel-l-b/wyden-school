@@ -3,10 +3,10 @@
 #include "queue.h"
 
 int main() {
+    system("clear");
     Queue q;
     initQueue(&q);
 
-    // inicializa fila com 5 peças
     for (int i = 0; i < MAX_QUEUE; i++) {
         enqueue(&q);
     }
@@ -23,6 +23,7 @@ int main() {
         printf("0 - Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &option);
+        system("clear");
 
         switch (option) {
             case 1:

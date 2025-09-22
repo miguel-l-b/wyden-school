@@ -5,11 +5,10 @@
 #define STACK_SIZE 3
 
 typedef struct {
-    char name;  // 'I', 'O', 'T', 'L'
+    char name;
     int id;
 } Piece;
 
-// Funções de geração, fila e pilha
 Piece generatePiece();
 
 void enqueue(Piece queue[], int *front, int *rear, Piece p);

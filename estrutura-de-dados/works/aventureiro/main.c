@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 void showMenu() {
-    printf("\n🎮 SELETOR DE PROJETOS - ESTRUTURA DE DADOS - Nível Novato\n");
+    system("clear");
+    printf("\n🎮 SELETOR DE PROJETOS - ESTRUTURA DE DADOS - Nível Aventureiro\n");
     printf("==========================================\n");
     printf("1 - Detective Quest\n");
     printf("2 - Sistema de Inventário\n");
@@ -16,18 +17,22 @@ void showMenu() {
 void runProject(int choice) {
     switch(choice) {
         case 1:
+            system("clear");
             printf("\n🏚️ Executando Detective Quest...\n");
             system("cd detective-quest && make && ./detective-quest");
             break;
         case 2:
+            system("clear");
             printf("\n🎒 Executando Sistema de Inventário...\n");
             system("cd inventory && make && ./inventory");
             break;
         case 3:
+            system("clear");
             printf("\n🗺️ Executando Gerenciador de Territórios...\n");
-            system("cd territory && make && ./war-game");
+            system("cd war-game && make && ./war-game");
             break;
         case 4:
+            system("clear");
             printf("\n🟩 Executando Tetris Stack...\n");
             system("cd tetris-stack && make && ./tetris-stack");
             break;

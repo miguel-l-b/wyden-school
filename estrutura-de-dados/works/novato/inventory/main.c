@@ -3,6 +3,7 @@
 #include "inventory.h"
 
 int main() {
+    system("clear");
     Item backpack[MAX_ITEMS];
     int numItems = 0;
     int option;

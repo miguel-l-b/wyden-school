@@ -3,7 +3,6 @@
 #include <string.h>
 #include "list.h"
 
-// Inserir no início
 Node* insertItemList(Node *head) {
     Node *newNode = (Node*) malloc(sizeof(Node));
     if (!newNode) {
@@ -23,7 +22,6 @@ Node* insertItemList(Node *head) {
     return newNode;
 }
 
-// Remover por nome
 Node* removeItemList(Node *head, const char *name) {
     Node *current = head, *previous = NULL;
 
@@ -43,7 +41,6 @@ Node* removeItemList(Node *head, const char *name) {
     return head;
 }
 
-// Listar itens
 void listItemsList(Node *head) {
     printf("\n📦 Itens na mochila (lista encadeada):\n");
     Node *current = head;
@@ -55,7 +52,6 @@ void listItemsList(Node *head) {
     }
 }
 
-// Busca sequencial
 Node* sequentialSearchList(Node *head, const char *name, int *comparisons) {
     *comparisons = 0;
     Node *current = head;
@@ -67,7 +63,6 @@ Node* sequentialSearchList(Node *head, const char *name, int *comparisons) {
     return NULL;
 }
 
-// Liberar memória
 void freeList(Node *head) {
     Node *current = head;
     while (current != NULL) {
